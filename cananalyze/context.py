@@ -41,6 +41,7 @@ class BusType:
     KOMODO = "komodo"
     SOCKETCAN = "socketcan"
     VECTOR = "vector"
+    CANTACT = "cantact"
 
 
 class Ctx:
@@ -93,7 +94,7 @@ class Ctx:
         # Check CAN interface
         if self.__bustype == BusType.KOMODO:
             self.__can_intf = kcan
-        elif self.__bustype == BusType.SOCKETCAN or self.__bustype == BusType.VECTOR:
+        elif self.__bustype == BusType.SOCKETCAN or self.__bustype == BusType.VECTOR or self.__bustype == BusType.CANTACT:
             self.__can_intf = pycan
         else:
             context.debug (1, "abstract_can.init: unknown bustype " + self.__bustype)
